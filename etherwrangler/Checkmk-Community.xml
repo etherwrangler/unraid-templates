@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Checkmk-Community</Name>
+  <Repository>checkmk/check-mk-community:2.5.0-latest</Repository>
+  <Registry>https://hub.docker.com/r/checkmk/check-mk-community</Registry>
+  <Network>proxynet</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forum.checkmk.com/</Support>
+  <Project>https://github.com/Checkmk/checkmk</Project>
+  <ReadMe/>
+  <Overview>Checkmk Community is a free, 100% open-source IT monitoring platform designed for small environments, home labs, and test setups supporting up to 100 hosts.</Overview>
+  <Category>Tools: Network:Management</Category>
+  <WebUI>http://[IP]:[PORT:5000]/cmk/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/etherwrangler/unraid-templates/main/icons/checkmk-dark.png</Icon>
+  <ExtraParams>--tmpfs /opt/omd/sites/cmk/tmp:uid=1000,gid=1000 --restart unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WebUI" Target="5000" Default="8080" Mode="tcp" Description="Web Interface Port" Type="Port" Display="always" Required="true" Mask="false">8095</Config>
+  <Config Name="Agent" Target="8000" Default="8000" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8096</Config>
+  <Config Name="CMK_PASSWORD" Target="CMK_PASSWORD" Default="" Mode="" Description="Password for cmkadmin" Type="Variable" Display="always" Required="true" Mask="true">H@mbone!</Config>
+  <Config Name="CMK_LIVESTATUS_TCP" Target="CMK_LIVESTATUS_TCP" Default="" Mode="" Description="Set this to " Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Appdata" Target="/omd/sites" Default="/mnt/user/appdata/checkmk2.5" Mode="rw" Description="Contains all relevant configuration files." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/checkmk2.5</Config>
+  <TailscaleStateDir/>
+</Container>
